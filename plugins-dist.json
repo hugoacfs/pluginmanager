@@ -1,0 +1,20 @@
+{
+    "community": {
+        "component_name": {
+            "name": "pluginname",
+            "path": "folder/",
+            "version": 2021010100,
+            "repo": "https://github.com/user/repo",
+            "branch": "master or tag"
+        }
+    },
+    "custom": {
+        "component2_name": {
+            "name": "pluginname2",
+            "path": "folder/",
+            "version": 2021010100,
+            "repo": "https://github.com/user/repo2",
+            "branch": "master or tag"
+        }
+    }
+}
