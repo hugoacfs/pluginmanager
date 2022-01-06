@@ -6,9 +6,11 @@ if (php_sapi_name() != "cli") {
 
 define('PLUGIN_MANAGER', 1);
 
+require_once("config.php");
 require_once("lib.php");
 
 $pluginsfolder = __DIR__ . '/plugins';
+$outputfolder = $OUTPUTFOLDER ?? '';
 
 echo ">>> Running Plugin Manager <<<" . PHP_EOL;
 
@@ -18,6 +20,7 @@ Options:
 [v]          Checks plugin versions.
 [s]          Strips git folders in plugins folder.
 [p]          Purges the plugins folder.
+[r]          Syncs the plugins folder' contents to the directory specified in config.php.
 
 EOD;
 
@@ -37,6 +40,9 @@ switch($option) {
         break;
     case 'p':
         purgefolder($pluginsfolder);
+        break;
+    case 'r':
+        syncplugins($pluginsfolder, $outputfolder);
         break;
     default;
         break;

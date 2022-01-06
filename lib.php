@@ -116,3 +116,29 @@ function purgefolder (string $pluginsfolder) {
 function stripgit (string $pluginsfolder) {
     echo exec("find $pluginsfolder -name .git -exec rm -rf {} \;");
 }
+
+function syncplugins (string $pluginsfolder, string $outputfolder) {
+     if (!file_exists($pluginsfolder)) {
+        $message = "Plugins folder does not exist, aborting" . PHP_EOL;
+        $status = 'ERROR';
+        logoutput($message, $status);
+        echo $message;
+        return;
+    }
+     if (!file_exists($outputfolder)) {
+        $message = "Output folder does not exist." . PHP_EOL;
+        $status = 'ERROR';
+        logoutput($message, $status);
+        echo $message;
+        return;
+    }
+    if (strlen($outputfolder) <= 1) {
+        $message = 'Issues finding output folder, aborting.';
+        $status = 'ERROR';
+        logoutput($message, $status);
+        echo $message;
+        return;
+    }
+    $status = 'INFO';
+    echo exec("rsync -avz $pluginsfolder/ $outputfolder/ ");
+}
