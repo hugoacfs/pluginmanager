@@ -24,9 +24,19 @@ Options:
 
 EOD;
 
-echo $help . PHP_EOL;
-
-$option = fgetc(STDIN);
+if (!isset($argv[1])) {
+    echo $help . PHP_EOL;
+    echo 'Select an option to continue: ';
+    $option = fgetc(STDIN);
+} else {
+    // We only support one option at a time.
+    // Position 0 = script name (pm.php).
+    $option = str_replace('-', '',  $argv[1]);
+    if ($option == 'h') {
+        echo $help . PHP_EOL;
+        exit;
+    }
+}
 
 switch($option) {
     case 'c':
@@ -45,5 +55,6 @@ switch($option) {
         syncplugins($pluginsfolder, $outputfolder);
         break;
     default;
+        echo 'Function not supported, use -h for help.';
         break;
 }
