@@ -6,7 +6,11 @@ if (php_sapi_name() != "cli") {
 
 define('PLUGIN_MANAGER', 1);
 
-require_once("config.php");
+// Setting default var.
+$OUTPUTFOLDER = './output';
+if (file_exists("config.php")) {
+    require_once("config.php");
+}
 require_once("lib.php");
 
 $pluginsfolder = __DIR__ . '/plugins';
