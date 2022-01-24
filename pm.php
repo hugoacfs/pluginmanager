@@ -11,6 +11,12 @@ $OUTPUTFOLDER = './output';
 if (file_exists("config.php")) {
     require_once("config.php");
 }
+// If plugins.json does not exist, script simply cannot run.
+if (!file_exists("plugins.json")) {
+    echo "Plugins JSON file was not found or cannot be read." . PHP_EOL;
+    echo "Please make sure the file is readable and in the correct place." . PHP_EOL;
+    exit("Aborting.");
+}
 require_once("lib.php");
 
 $pluginsfolder = __DIR__ . '/plugins';
