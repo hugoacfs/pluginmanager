@@ -31,7 +31,7 @@ function gitclone (string $pluginsfolder) {
         $status = 'INFO';
         $output = shell_exec("git clone --depth=1 -b '$plugin->branch' $plugin->repo $pluginsfolder/$plugin->path/$plugin->name 2>&1");
         if (isset($plugin->commit)) {
-            $output = shell_exec("git --git-dir=$pluginsfolder/$plugin->path/$plugin->name/.git checkout -q $plugin->commit 2>&1");
+            $output = shell_exec("git --git-dir=$pluginsfolder/$plugin->path/$plugin->name/.git checkout $plugin->commit 2>&1");
         }
         if ($output == null) {
             $output = "No output detected for $plugin->name" . PHP_EOL;
@@ -46,7 +46,7 @@ function gitclone (string $pluginsfolder) {
         $status = 'INFO';
         $output = shell_exec("git clone --depth=1 -b '$plugin->branch' $plugin->repo $pluginsfolder/$plugin->path/$plugin->name 2>&1");
         if (isset($plugin->commit)) {
-            $output = shell_exec("git --git-dir=$pluginsfolder/$plugin->path/$plugin->name/.git checkout -q $plugin->commit 2>&1");
+            $output = shell_exec("git --git-dir=$pluginsfolder/$plugin->path/$plugin->name/.git checkout $plugin->commit 2>&1");
         }
         if ($output == null) {
             $output = "No output detected for $plugin->name" . PHP_EOL;
