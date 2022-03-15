@@ -3,3 +3,4 @@ plugins/*
 plugins.json
 requiresattention.json
 config.php
+.vscode
