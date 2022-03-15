@@ -1,6 +1,6 @@
 <?php
 // Constants used in version.php files,
-// if these are not present, erros occur.
+// if these are not present, errors occur.
 
 define('MATURITY_ALPHA',    50);
 define('MATURITY_BETA',     100);
