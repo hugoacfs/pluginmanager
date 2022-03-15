@@ -5,7 +5,8 @@
             "path": "folder/",
             "version": 2021010100,
             "repo": "https://github.com/user/repo",
-            "branch": "master or tag"
+            "branch": "master or tag",
+            "commit": "long hash"
         }
     },
     "custom": {
@@ -14,7 +15,8 @@
             "path": "folder/",
             "version": 2021010100,
             "repo": "https://github.com/user/repo2",
-            "branch": "master or tag"
+            "branch": "master or tag",
+            "commit": "long hash"
         }
     }
 }
